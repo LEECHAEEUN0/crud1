@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% block header %}
+ <!-- About Section-->
+ <section class="masthead bg-primary text-white text-centerpage-section bg-primary text-white mb-0" id="about">
+    <div class="container">       
+        <!-- About Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-white">Detail</h2>
+        <h3>제목 : {{post.title}}</h3>
+        <p>작성일 : {{post.pub_date}}</p>
+        <p>글내용 : {{post.content}}</p>
+        {% if post.image %}
+           <img src="{{ post.image.url }}" width = "250" height = "250" alt="image">
+        {% endif %}
+        <br>   
+        <a href="{% url 'edit' post.id %}">수정하기</a>
+        <a href="{% url 'delete' post.id %}">삭제하기</a>
+        </div>      
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- About Section Content-->
+        <div class="row">
+            <div class="col-lg-4 ms-auto"><p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p></div>
+            <div class="col-lg-4 me-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div>
+        </div>
+        <!-- About Section Button-->
+        <div class="text-center mt-4">
+            <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
+                <i class="fas fa-download me-2"></i>
+                Free Download!
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
